@@ -78,6 +78,39 @@
 </head>
 <body style="overflow-x:hidden;">
 
+	<script src="https://kit.fontawesome.com/55e7859e7b.js" crossorigin="anonymous"></script>
+	<div class="music">
+		<a href="javascript:music_player()">
+			<div>
+				<i id="volume" class="fa-solid fa-volume-xmark"></i>
+				<p style="display:none;" id="m_status">pause</p>
+			</div>
+		</a>
+		<audio id="bgm" preload="none" loop="loop" src="bgm/love-story.mp3"></audio>
+	</div>
+	<style>
+		.music{
+			z-index:100;
+			position: fixed;
+			right:1rem; top:1rem;
+			transition:all .3s ease;
+		}
+	</style>
+	<script>
+		var bgm = document.getElementById('bgm');
+		function music_player(){
+			if ($('#m_status').text()=='pause'){
+				bgm.play();
+				$('#m_status').text('play');
+				document.getElementById('volume').className="fa-solid fa-volume-high"
+			}else{
+				bgm.pause();
+				$('#m_status').text('pause')
+				document.getElementById('volume').className="fa-solid fa-volume-xmark"
+			}
+		}
+	</script>
+
 <div class="qbootstrap-hero" data-section="home">
 	<div class="qbootstrap-overlay"></div>
 	<div class="qbootstrap-cover text-center" data-stellar-background-ratio="0.5"
